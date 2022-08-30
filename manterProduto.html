@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Folhinha.Net</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="manifest" href="manifest.webmanifest">
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">Folhinha.Net </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sobreNos.html">Sobre nós</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="produtos.html">Produtos</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="ofertas.html">Ofertas</a></li>
+                               <!-- <li><a class="dropdown-item" href="#!">New Arrivals</a></li> -->
+                        
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+    
+        </header>
+        <!-- Section-->
+        <section class="py-5">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content rounded-4 shadow">
+                    
+                    <div class="text-center p-5 pb-4 border-bottom-0">                      
+                      <h2 id="titulo" class="fw-bold mb-0">Cadastro de Produto</h2>
+                    </div>
+              
+                    <div class="modal-body p-5 pt-0">
+                      <form class="row gy-2 gx-3 align-items-center">
+                        <div class="text-center mb-3">
+                          <img id="productImage" src="asserts/imagens/noImage.png" alt="Sem imagem" class="img-thumbnail rounded">
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control rounded-3" id="description" placeholder="Descrição do Produto">
+                          <label for="description">Descrição do Produto</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="url" class="form-control rounded-3" id="url_img" placeholder="Url da Imagem do Produto">
+                          <label for="url_img">Url da Imagem do Produto</label>
+                        </div>
+                        <div class="text-center mb-3">
+                          <button id="btnUpdateImage" type="button" class="btn btn-default btn-sm">
+                             <img src="asserts/imagens/update.png" width="40px" height="40px" alt="Atualizar">Atualizar
+                          </button>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" id="price" min="0.00" max="10000.00" step="0.01" class="form-control rounded-3" placeholder="Preço do Produto">
+                            <label for="price">Preço do Produto</label>
+                          </div>
+                          <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="offer" checked>
+                            <label class="form-check-label" for="offer">Produto em Oferta?</label>
+                          </div>
+                        <button id="save" class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Cadastrar</button>                        
+                      </form>
+                    </div>
+            
+                </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Folhinha.Net 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            if('serviceWorker' in navigator) {
+                console.log('has service worker');
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('serviceWorker.js')
+                    .then((registration) => {
+                        console.log('Service worker registered', registration);
+                    });
+                });
+            }
+            else {
+                console.log('Seu browser não tem service worker');
+            }
+        });
+
+        document.getElementById('btnUpdateImage').onclick = function() {
+            var url = document.getElementById('url_img').value;
+            document.getElementById('productImage').src = url;
+            return false;
+        }
+
+    </script>
+</html>
